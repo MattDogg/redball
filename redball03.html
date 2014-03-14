@@ -1,0 +1,126 @@
+<!DOCTYPE HTML><html>
+<head><title>Red Ball</title>
+<script src="http://lrn.icstars.org/redball.js"></script>
+<script>
+function moveleft()
+{redball.left=redball.left-5;
+
+}
+function sayhello()
+{alert("hello Matt Dogg");
+
+}
+function moveright()
+{redball.left=redball.left+5;
+
+}
+function moveup()
+{redball.top=redball.top-5;
+
+}
+function movedown()
+{redball.top=redball.top+5;
+
+}
+function movesquare()
+{
+	for(var i=1;i<=10;i++)
+	{
+	moveright();
+	}
+	for(var i=1;i<=10;i++)
+	{
+	movedown();
+	}
+	for(var i=1;i<=10;i++)
+	{
+	moveleft();
+	}
+	for(var i=1;i<=10;i++)
+	{
+	moveup();
+	}
+}
+function movetriangle()
+{
+	for(var i=1;i<=5;i++)
+	{
+	upright();
+	}
+	for(var i=1;i<=5;i++)
+	{
+	downright();
+	}
+	for(var i=1;i<=10;i++)
+	{
+	moveleft();
+	}
+}
+function movediamond()
+{
+	for(var i=1;i<=10;i++)
+	{
+	upright();
+	}
+	for(var i=1;i<=10;i++)
+	{
+	downright();
+	}
+	for(var i=1;i<=10;i++)
+	{
+	downleft();
+	}
+	for(var i=1;i<=10;i++)
+	{
+	upleft();
+	}
+}
+function wallbounce()
+{
+	for(var i=1;i<=50;i++)
+	{
+	moveleft();
+	}
+	for(var i=1;i<=100;i++)
+	{
+	moveup();
+	}
+}
+function upright()
+{
+moveup(); moveright();
+}
+function downright()
+{
+movedown(); moveright();
+}
+function downleft()
+{
+movedown(); moveleft();
+}
+function upleft()
+{
+moveup(); moveleft();
+}
+function moveup10()
+{
+	for(var i=1;i<=10;i++)
+	{
+	moveup();
+	}
+}
+</script>
+</head>
+<body>
+<button onclick="sayhello();">hello world</button>
+<button onclick="moveleft();">move left</button>
+<button onclick="moveright();">move right</button>
+<button onclick="moveup();">move up</button>
+<button onclick="movedown();">move down</button>
+<button onclick="movesquare();">move square</button>
+<button onclick="movetriangle();">move triangle</button>
+<button onclick="movediamond();">move diamond</button>
+<button onclick="wallbounce();">wall bounce</button>
+<button onclick="moveup10();">up 10</button>
+<img src="redball.jpg" id="redball"/>
+</body></html>
