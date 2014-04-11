@@ -1,0 +1,307 @@
+<html>
+<head>
+<style>
+.ball{
+	position:absolute;
+  top:200;
+  left:500px;
+  height:100px;
+  width:100px;
+	
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script> 
+function Ball(cssid)
+{
+	this.moveright=function()
+	{
+		var pos=$(cssid).offset();
+    console.log("top "+pos.top);
+		pos.left=pos.left+20;
+		$(cssid).offset(pos);
+	}
+	this.movedown=function()
+	{
+		var pos=$(cssid).offset();
+		console.log("top "+pos.top);
+		pos.top=pos.top+20;
+		$(cssid).offset(pos);
+	}
+	this.moveup=function()
+	{
+		var pos=$(cssid).offset();
+		console.log("top "+pos.top);
+		pos.top=pos.top-20;
+		$(cssid).offset(pos);
+	}
+	this.moveleft=function()
+	{
+		var pos=$(cssid).offset();
+		console.log("left "+pos.left);
+		pos.left=pos.left-20;
+		$(cssid).offset(pos);
+	}
+	this.moveupleft=function()
+	{
+		var pos=$(cssid).offset();
+		console.log("left "+pos.left);
+		pos.left=pos.left-20;
+		pos.top=pos.top-20;
+		$(cssid).offset(pos);
+	}
+	this.moveupright=function()
+	{
+		var pos=$(cssid).offset();
+		console.log("left "+pos.left);
+		pos.left=pos.left+20;
+		pos.top=pos.top-20;
+		$(cssid).offset(pos);
+	}
+	this.movedownright=function()
+	{
+		var pos=$(cssid).offset();
+		pos.left=pos.left+20;
+		pos.top=pos.top+20;
+		$(cssid).offset(pos);
+	}
+	this.movedownleft=function()
+	{
+		var pos=$(cssid).offset();
+		console.log("left "+pos.left);
+		pos.left=pos.left-20;
+		pos.top=pos.top+20;
+		$(cssid).offset(pos);
+	}
+}
+var redball=new Ball("#redball");
+var greenball=new Ball("#greenball");
+var blueball=new Ball("#blueball");
+var blackball=new Ball("#blackball");
+</script>
+
+<script>
+   ("#uprightbutton").click(function(){ 
+   greenball.moveupright();
+}); 
+
+ $("#upbutton").click(function(){ 
+  greenball.moveup();
+});
+
+ $("#upleftbutton").click(function(){ 
+   greenball.moveupleft();
+});
+ 
+  ("#table1 #rightbutton").click(function(){ 
+   greenball.moveright();
+});
+
+ $("#table1 #leftbutton").click(function(){ 
+   greenball.moveleft();
+});
+
+ $("#table1 #downrightbutton").click(function(){ 
+   greenball.movedownright();
+});
+
+ $("#table1 #downbutton").click(function(){ 
+   greenball.movedown();
+});
+
+ $("#table1 #downleftbutton").click(function(){ 
+   greenball.movedownleft();
+});
+ </script>
+
+
+<script>
+  $("#table2 #uprightbutton").click(function(){ 
+   blueball.moveupright();
+}); 
+
+ $("#table2 #upbutton").click(function(){ 
+  blueball.moveup();
+});
+
+ $("#table2 #upleftbutton").click(function(){ 
+   blueball.moveupleft();
+});
+ 
+ $("#table2 #rightbutton").click(function(){ 
+   blueball.moveright();
+});
+
+ $("#table2 #leftbutton").click(function(){ 
+   blueball.moveleft();
+});
+
+ $("#table2 #downrightbutton").click(function(){ 
+   blueball.movedownright();
+});
+
+ $("#table2 #downbutton").click(function(){ 
+   blueball.movedown();
+});
+
+ $("#table2 #downleftbutton").click(function(){ 
+   blueball.movedownleft();
+});
+
+</script>
+
+<script>
+  $("#table3 #uprightbutton").click(function(){ 
+   redball.moveupright();
+}); 
+
+ $("#table3 #upbutton").click(function(){ 
+  redball.moveup();
+});
+
+ $("#table3 #upleftbutton").click(function(){ 
+   redball.moveupleft();
+});
+ 
+ $("#table3 #rightbutton").click(function(){ 
+   redball.moveright();
+});
+
+ $("#table3 #leftbutton").click(function(){ 
+   redball.moveleft();
+});
+
+ $("#table3 #downrightbutton").click(function(){ 
+   redball.movedownright();
+});
+
+ $("#table3 #downbutton").click(function(){ 
+   redball.movedown();
+});
+
+ $("#table3 #downleftbutton").click(function(){ 
+   redball.movedownleft();
+});
+</script>
+
+
+<script>
+  $("#table4 #uprightbutton").click(function(){ 
+   blackball.moveupright();
+}); 
+
+ $("#table4 #upbutton").click(function(){ 
+  blackball.moveup();
+});
+
+ $("#table4 #upleftbutton").click(function(){ 
+   blackball.moveupleft();
+});
+ 
+ $("#table4 #rightbutton").click(function(){ 
+   blackball.moveright();
+});
+
+ $("#table4 #leftbutton").click(function(){ 
+   blackball.moveleft();
+});
+
+ $("#table4 #downrightbutton").click(function(){ 
+   blackball.movedownright();
+});
+
+ $("#table4 #downbutton").click(function(){ 
+   blackball.movedown();
+});
+
+ $("#table4 #downleftbutton").click(function(){ 
+   blackball.movedownleft();
+});
+
+ </script>
+
+</head>
+
+<body>
+
+<table border="1">
+  <tr>
+    <td id="upleftbutton"><img src="arrowupl.jpg"/></td>
+    <td id="upbutton"><img src="arrowup.jpg"/></td>
+    <td id="uprightbutton"><img src="arrowur.jpg" id=/></td>
+  </tr>
+  <tr>
+    <td id="leftbutton"><img src="arrowleft.jpg"/></td>
+    <td>Green</td>
+    <td><img src="arrowright.jpg" id="rightbutton"/></td>
+  </tr>
+  <tr>
+    <td><img src="arrowdl.jpg" id="downleftbutton"/></td>
+    <td><img src="arrowdown.jpg" id="downbutton"/></td>
+    <td><img src="arrowdr.jpg" id="downrightbutton"/></td>
+  </tr>
+  
+</table>
+
+<table id="table2" border="1" align="right" style="margin-top:-200">
+   <tr>
+    <td id="arrowupl"><img src="arrowupl.jpg"/></td>
+    <td id="arrowup"><img src="arrowup.jpg"/></td>
+    <td id="arrowur"><img src="arrowur.jpg" id=/></td>
+  </tr>
+  <tr>
+    <td id="arrowleft"><img src="arrowleft.jpg"/></td>
+    <td>Blue</td>
+    <td id="arrowright"><img src="arrowright.jpg"/></td>
+  </tr>
+  <tr>
+    <td id="arrowdl"><img src="arrowdl.jpg" /></td>
+    <td id="arrowdown"><img src="arrowdown.jpg"/></td>
+    <td id="arrowdr"><img src="arrowdr.jpg"/></td>
+  </tr>
+  
+</table>
+
+<table id="table3" border="1" style="margin-top:205">
+  <tr>
+    <td id="arrowupl"><img src="arrowupl.jpg"/></td>
+    <td id="arrowup"><img src="arrowup.jpg"/></td>
+    <td id="arrowur"><img src="arrowur.jpg" id=/></td>
+  </tr>
+  <tr>
+    <td id="arrowleft"><img src="arrowleft.jpg"/></td>
+    <td>Red</td>
+    <td id="arrowright"><img src="arrowright.jpg"/></td>
+  </tr>
+  <tr>
+    <td id="arrowdl"><img src="arrowdl.jpg" /></td>
+    <td id="arrowdown"><img src="arrowdown.jpg"/></td>
+    <td id="arrowdr"><img src="arrowdr.jpg"/></td>
+  </tr>
+  
+</table>
+
+<table id="table4" border="1" align="right" style="margin-top:-175">
+   <tr>
+    <td id="arrowupl"><img src="arrowupl.jpg"/></td>
+    <td id="arrowup"><img src="arrowup.jpg"/></td>
+    <td id="arrowur"><img src="arrowur.jpg" id=/></td>
+  </tr>
+  <tr>
+    <td id="arrowleft"><img src="arrowleft.jpg"/></td>
+    <td>Black</td>
+    <td id="arrowright"><img src="arrowright.jpg"/></td>
+  </tr>
+  <tr>
+    <td id="arrowdl"><img src="arrowdl.jpg" /></td>
+    <td id="arrowdown"><img src="arrowdown.jpg"/></td>
+    <td id="arrowdr"><img src="arrowdr.jpg"/></td>
+  </tr>
+
+<img src="redball.jpg" id="redball" class="ball"/>
+<img src="greenball.jpg" id="greenball" class="ball"/>
+<img src="blackball.jpg" id="blackball" class="ball"/>
+<img src="blueball.jpg" id="blueball" class="ball"/>
+</body>
+</html>

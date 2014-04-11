@@ -1,0 +1,367 @@
+<html>
+<head>
+<style>
+.ball{
+	position:absolute;
+	left:500px;
+	height:200px;
+	width:200px;
+	top:200px;
+}
+
+#wall {
+  background-color: blue;
+  height: 200px;
+  width: 50px;
+  position:absolute;
+  top:210px;
+  left:780px;
+}
+
+
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
+</script>
+<script> 
+function Ball(cssid)
+{
+
+ this.checkwallhit=function()
+ {
+    var hit=false;
+
+    var ballposition=$(cssid).offset();
+    var ballwidth=$(cssid).width();
+    var ballheight=$(cssid).height();
+    var balleft=ballposition.left;
+    var balltop=ballposition.top;
+    var ballright=balleft+ballwidth;
+    var ballbot=balltop+ballheight;
+
+    var wallposition=$("#wall").offset();
+    var wallwidth=$("#wall").width();
+    var wallheight=$("#wall").height();
+    var walleft=wallposition.left;
+    var walltop=wallposition.top;
+    var wallright=walleft+wallwidth;
+    var wallbot=walltop+wallheight;
+
+    if (ballright > walleft && 
+      balltop < wallbot && 
+      ballbot > walltop && 
+      balleft < wallright)
+      {
+      hit = true;}
+    return hit;}
+
+	this.moveright=function()
+	{
+		var nothit = this.checkwallhit();
+    var position=$(cssid).offset();
+    console.log("left "+position.left);
+    console.log("top "+position.top);
+  if(nothit == false){position.left=position.left+20}
+  else{position.left=position.left-20;}
+    $(cssid).offset(position);
+	}
+	this.movedown=function()
+	{
+		var nothit = this.checkwallhit();
+    var position=$(cssid).offset();
+    console.log("top "+position.top);
+  if(nothit == false){position.top=position.top+20}
+    else{position.top=position.top-20;}
+    $(cssid).offset(position);
+	}
+	this.moveup=function()
+	{
+		var nothit = this.checkwallhit();
+  var position=$(cssid).offset();
+    console.log("top "+position.top);
+  if(nothit == false){position.top=position.top-20}
+  else{position.top=position.top+20;}
+    $(cssid).offset(position);
+	}
+	this.moveleft=function()
+	{
+		var nothit = this.checkwallhit();
+  var position=$(cssid).offset();
+    console.log("left "+position.left);
+  if(nothit == false){position.left=position.left-20}
+  else{position.left=position.left+20;}
+    $(cssid).offset(position);
+	}
+	this.moveupleft=function()
+	{
+		var nothit = this.checkwallhit();
+    var position=$(cssid).offset();
+    console.log("top "+position.top);
+    if(nothit == false){position.top=position.top-20
+    position.left=position.left-20}
+    else{position.top=position.top+20;
+    position.left=position.left+20;}
+    $(cssid).offset(position);
+	}
+	this.moveupright=function()
+	{
+		var nothit = this.checkwallhit();
+    var position=$(cssid).offset();
+    console.log("top "+position.top);
+    if(nothit == false){position.top=position.top-20
+    position.left=position.left+20}
+    else{position.top=position.top+20;
+    position.left=position.left-20}
+    $(cssid).offset(position);
+	}
+	this.movedownright=function()
+	{
+		var nothit = this.checkwallhit();
+    var position=$(cssid).offset();
+    console.log("top "+position.top);
+    if(nothit == false){position.top=position.top+20
+    position.left=position.left+20}
+    else{position.top=position.top-20;
+    position.left=position.left-20;}
+    $(cssid).offset(position);
+	}
+	this.movedownleft=function()
+	{
+		var nothit = this.checkwallhit();
+    var position=$(cssid).offset();
+    console.log("top "+position.top);
+    if(nothit == false){position.top=position.top+20
+    position.left=position.left-20}
+    else{position.top=position.top-20;
+    position.left=position.left+20;}
+    $(cssid).offset(position);
+	}
+}
+var redball=new Ball("#redball");
+var greenball=new Ball("#greenball");
+var blueball=new Ball("#blueball");
+var blackball=new Ball("#blackball");
+</script>
+</head>
+<body>
+	
+	<div id="wall"></div>
+
+  <table border="1">
+  <tr>
+    <td id="arrowupl"><img src="arrowupl.jpg"/></td>
+    <td id="arrowup"><img src="arrowup.jpg"/></td>
+    <td id="arrowur"><img src="arrowur.jpg" id=/></td>
+  </tr>
+  <tr>
+    <td id="arrowleft"><img src="arrowleft.jpg"/></td>
+    <td>Green</td>
+    <td id="arrowright"><img src="arrowright.jpg"/></td>
+  </tr>
+  <tr>
+    <td id="arrowdl"><img src="arrowdl.jpg" /></td>
+    <td id="arrowdown"><img src="arrowdown.jpg"/></td>
+    <td id="arrowdr"><img src="arrowdr.jpg"/></td>
+  </tr>
+  
+</table>
+
+<script>
+  $("#arrowur").click(function(){ 
+   greenball.moveupright();
+});
+
+ $("#arrowup").click(function(){ 
+  greenball.moveup();
+});
+
+ $("#arrowupl").click(function(){ 
+   greenball.moveupleft();
+});
+ 
+ $("#arrowright").click(function(){ 
+   greenball.moveright();
+});
+
+ $("#arrowleft").click(function(){ 
+   greenball.moveleft();
+});
+
+ $("#arrowdr").click(function(){ 
+   greenball.movedownright();
+});
+
+ $("#arrowdown").click(function(){ 
+   greenball.movedown();
+});
+
+ $("#arrowdl").click(function(){ 
+   greenball.movedownleft();
+});
+ </script>
+
+<table id="table2" border="1" align="right" style="margin-top:-200">
+   <tr>
+    <td id="arrowupl"><img src="arrowupl.jpg"/></td>
+    <td id="arrowup"><img src="arrowup.jpg"/></td>
+    <td id="arrowur"><img src="arrowur.jpg" id=/></td>
+  </tr>
+  <tr>
+    <td id="arrowleft"><img src="arrowleft.jpg"/></td>
+    <td>Blue</td>
+    <td id="arrowright"><img src="arrowright.jpg"/></td>
+  </tr>
+  <tr>
+    <td id="arrowdl"><img src="arrowdl.jpg" /></td>
+    <td id="arrowdown"><img src="arrowdown.jpg"/></td>
+    <td id="arrowdr"><img src="arrowdr.jpg"/></td>
+  </tr>
+  
+</table>
+
+<script>
+  $("#table2 #arrowur").click(function(){ 
+   blueball.moveupright();
+});
+
+ $("#table2 #arrowup").click(function(){ 
+  blueball.moveup();
+});
+
+ $("#table2 #arrowupl").click(function(){ 
+   blueball.moveupleft();
+});
+ 
+ $("#table2 #arrowright").click(function(){ 
+   blueball.moveright();
+});
+
+ $("#table2 #arrowleft").click(function(){ 
+   blueball.moveleft();
+});
+
+ $("#table2 #arrowdr").click(function(){ 
+   blueball.movedownright();
+});
+
+ $("#table2 #arrowdown").click(function(){ 
+   blueball.movedown();
+});
+
+ $("#table2 #arrowdl").click(function(){ 
+   blueball.movedownleft();
+});
+ </script>
+
+ <table id="table3" border="1" style="margin-top:225">
+  <tr>
+    <td id="arrowupl"><img src="arrowupl.jpg"/></td>
+    <td id="arrowup"><img src="arrowup.jpg"/></td>
+    <td id="arrowur"><img src="arrowur.jpg" id=/></td>
+  </tr>
+  <tr>
+    <td id="arrowleft"><img src="arrowleft.jpg"/></td>
+    <td>Red</td>
+    <td id="arrowright"><img src="arrowright.jpg"/></td>
+  </tr>
+  <tr>
+    <td id="arrowdl"><img src="arrowdl.jpg" /></td>
+    <td id="arrowdown"><img src="arrowdown.jpg"/></td>
+    <td id="arrowdr"><img src="arrowdr.jpg"/></td>
+  </tr>
+</table>
+
+<script>
+  $("#table3 #arrowur").click(function(){ 
+   redball.moveupright();
+});
+
+ $("#table3 #arrowup").click(function(){ 
+  redball.moveup();
+});
+
+ $("#table3 #arrowupl").click(function(){ 
+   redball.moveupleft();
+});
+ 
+ $("#table3 #arrowright").click(function(){ 
+   redball.moveright();
+});
+
+ $("#table3 #arrowleft").click(function(){ 
+   redball.moveleft();
+});
+
+ $("#table3 #arrowdr").click(function(){ 
+   redball.movedownright();
+});
+
+ $("#table3 #arrowdown").click(function(){ 
+   redball.movedown();
+});
+
+ $("#table3 #arrowdl").click(function(){ 
+   redball.movedownleft();
+});
+ </script>  
+
+ <table id="table4" border="1" align="right" style="margin-top:-175">
+   <tr>
+    <td id="arrowupl"><img src="arrowupl.jpg"/></td>
+    <td id="arrowup"><img src="arrowup.jpg"/></td>
+    <td id="arrowur"><img src="arrowur.jpg" id=/></td>
+  </tr>
+  <tr>
+    <td id="arrowleft"><img src="arrowleft.jpg"/></td>
+    <td>Black</td>
+    <td id="arrowright"><img src="arrowright.jpg"/></td>
+  </tr>
+  <tr>
+    <td id="arrowdl"><img src="arrowdl.jpg" /></td>
+    <td id="arrowdown"><img src="arrowdown.jpg"/></td>
+    <td id="arrowdr"><img src="arrowdr.jpg"/></td>
+  </tr>
+</table>
+
+<script>
+  $("#table4 #arrowur").click(function(){ 
+   blackball.moveupright();
+});
+
+ $("#table4 #arrowup").click(function(){ 
+  blackball.moveup();
+});
+
+ $("#table4 #arrowupl").click(function(){ 
+   blackball.moveupleft();
+});
+ 
+ $("#table4 #arrowright").click(function(){ 
+   blackball.moveright();
+});
+
+ $("#table4 #arrowleft").click(function(){ 
+   blackball.moveleft();
+});
+
+ $("#table4 #arrowdr").click(function(){ 
+   blackball.movedownright();
+});
+
+ $("#table4 #arrowdown").click(function(){ 
+   blackball.movedown();
+});
+
+ $("#table4 #arrowdl").click(function(){ 
+   blackball.movedownleft();
+});
+ </script>  
+
+
+<img src="redball.jpg" id="redball" class="ball"/>
+<img src="greenball.jpg" id="greenball" class="ball"/>
+<img src="orangeball.jpg" id="orangeball" class="ball"/>
+<img src="blackball.jpg" id="blackball" class="ball"/>
+<img src="blueball.jpg" id="blueball" class="ball"/>
+<img src="purpleball.jpg" id="purpleball" class="ball"/>
+</body>
+</html>
